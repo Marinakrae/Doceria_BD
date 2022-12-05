@@ -1,0 +1,52 @@
+CREATE TABLE Clientes 
+( 
+ idCliente INT PRIMARY KEY,  
+ nome VARCHAR(50) NOT NULL,  
+ dataNascimento DATE NOT NULL,  
+ telefone VARCHAR(13) NOT NULL,  
+ email VARCHAR(80) 
+); 
+
+CREATE TABLE Vendas 
+( 
+ idVenda INT PRIMARY KEY,  
+ dataVenda DATE NOT NULL,  
+ hora time NOT NULL,  
+ total numeric(10,2) NOT NULL,  
+ idClientes INT NOT NULL
+); 
+
+CREATE TABLE itens_vendas 
+( 
+ idItensVenda int PRIMARY KEY,  
+ qtdVendida INT NOT NULL,  
+ subTotalVenda numeric(10,2) NOT NULL,  
+ idVendas INT NOT NULL,  
+ idDoces INT NOT NULL
+);
+
+CREATE TABLE Doces 
+( 
+ idDoce INT PRIMARY KEY,  
+ precoVenda numeric(10,2) NOT NULL,  
+ descricao VARCHAR(50) NOT NULL,  
+ dataValidade DATE NOT NULL, 
+ precoCusto numeric(10,2) NOT NULL,  
+ qtdEstoque INT NOT NULL,  
+ idFornecedores INT NOT NULL
+); 
+
+CREATE TABLE Fornecedores 
+( 
+ idFornecedor INT PRIMARY KEY,  
+ nomeFantasia VARCHAR(50) NOT NULL,  
+ razaoSocial VARCHAR(50) NOT NULL,  
+ telefone VARCHAR(13) NOT NULL,  
+ email VARCHAR(80)
+); 
+
+
+ALTER TABLE itens_vendas ADD FOREIGN KEY(idVendas) REFERENCES Vendas (idVenda);
+ALTER TABLE itens_vendas ADD FOREIGN KEY(idDoces) REFERENCES Doces (idDoce);
+ALTER TABLE Doces ADD FOREIGN KEY(idFornecedores) REFERENCES Fornecedores (idFornecedor);
+ALTER TABLE Vendas ADD FOREIGN KEY(idClientes) REFERENCES Clientes (idCliente);
