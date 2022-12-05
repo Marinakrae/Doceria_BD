@@ -1,7 +1,0 @@
-1. Listar o nome dos doces ordenados pela sua margem de lucro.
-
-2. Listar o nome e o telefone dos clientes, de acordo com a quantidade de compras realizadas na loja no mês de novembro.
-
-3. Listar os produtos pela sua quantidade em estoque, e o nome e contato dos seus respectivos fornecedores
-
-4. Listar os horários em que ocorrem mais vendas na loja, e os produtos mais vendidos em cada um deles.

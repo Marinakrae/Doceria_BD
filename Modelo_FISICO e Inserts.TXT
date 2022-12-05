@@ -73,3 +73,18 @@ INSERT INTO public.doces(
 	(3, 18, 'Sorvete baunilha', '10/04/2023', 10, 20, 3), 
 	(4, 8, 'Caixa de bombom', '09/06/2024', 4.5, 30, 2),
 	(5, 3, 'Tortuguita', '09/07/2023', 0.75, 100, 1);
+
+INSERT INTO public.vendas(
+	idvenda, datavenda, hora, total, idclientes)
+	VALUES (1, '20/11/2022', '10:08:28', 0, 1),
+	(2, '20/11/2022', '10:42:44', 0, 2), 
+	(3, '21/11/2022', '11:38:18', 0, 3),
+        (4, '01/11/2022', '09:54:00', 0, 2);
+
+INSERT INTO public.itens_vendas(
+	iditensvenda, qtdvendida, subtotalvenda, idvendas, iddoces)
+	VALUES (1, 3, 9, 1, 5),
+	(2, 1, 18, 2, 3),
+	(3, 2, 16, 3, 4),
+	(4, 2, 11, 1, 1),
+	(5, 1, 10, 2, 2);
