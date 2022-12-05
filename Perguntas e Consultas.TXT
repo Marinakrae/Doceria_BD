@@ -1,21 +1,21 @@
-1. Listar o nome dos doces ordenados pela sua margem de lucro.
+/*1. Listar o nome dos doces ordenados pela sua margem de lucro.*/
 
 SELECT COALESCE(d.descricao, 'Subtotal'), (d.precoVenda - d.precoCusto) as Lucro
 FROM Doces d
 GROUP BY GROUPING SETS ((Lucro, d.descricao), ());
 
 
-2. Listar o nome e o telefone dos clientes, de acordo com a quantidade de compras realizadas na loja no mês de novembro.
+/*2. Listar o nome e o telefone dos clientes, de acordo com a quantidade de compras realizadas na loja no mês de novembro.*/
 
 SELECT c.nome, c.telefone, v.idVenda                          			
 FROM Clientes c                                      
 INNER JOIN Vendas v
 ON c.idCliente = v.idClientes
 WHERE v.datavenda BETWEEN '2022-11-01' AND '2022-11-30'
-GROUP BY ROLLUP (v.idVenda, c.nome, c.telefone);
+GROUP BY ROLLUP (c.nome, v.idVenda, c.telefone);
 
 
-3. Listar os produtos pela sua quantidade em estoque, e o nome e contato dos seus respectivos fornecedores
+/*3. Listar os produtos pela sua quantidade em estoque, e o nome e contato dos seus respectivos fornecedores*/
 
 SELECT COALESCE(d.descricao, 'Subtotal'), f.email, sum(d.qtdEstoque) as Quantidade
 FROM fornecedores f
