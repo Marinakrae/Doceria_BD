@@ -11,6 +11,7 @@ SELECT c.nome, c.telefone, v.idVenda
 FROM Clientes c                                      
 INNER JOIN Vendas v
 ON c.idCliente = v.idClientes
+WHERE v.datavenda BETWEEN '2022-11-01' AND '2022-11-30'
 GROUP BY ROLLUP (v.idVenda, c.nome, c.telefone);
 
 
